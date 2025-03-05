@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <head>
   <meta charset="UTF-8">
   <title>😘</title>
   <style>
+    
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    #form-wedding-section {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 30px 15px; /* Giảm padding trên điện thoại */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-container {
+  max-width: 100%;
+  width: 95%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: none; /* Giảm shadow cho nhẹ hơn */
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 15px;
+    transform: none; /* Không scale trên mobile */
+  }
+}
+input, select, textarea {
+  font-size: 16px; /* Tránh zoom trên iPhone */
+  padding: 10px;
+}
+
+.wedding-submit {
+  font-size: 16px;
+  padding: 12px;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -333,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var audio = document.getElementById("background-music");
 
     // Đặt âm lượng trước khi phát nhạc
-    audio.volume = 0.2;
+    audio.volume = 0.1;
 
     // Thử phát nhạc ngay lập tức
     var playPromise = audio.play();
@@ -352,7 +391,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+});document.addEventListener("DOMContentLoaded", function () {
+    var audio = document.getElementById("background-music");
+
+    document.body.addEventListener("click", function playAudio() {
+        if (audio.paused) {
+            audio.volume = 0.4;
+            audio.play().catch(error => console.log("Không thể phát nhạc tự động", error));
+            document.body.removeEventListener("click", playAudio);
+        }
+    });
 });
+
 </script>
 
   
