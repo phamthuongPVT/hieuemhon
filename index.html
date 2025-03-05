@@ -366,6 +366,24 @@ body {
               });
           });
           </script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var inputs = document.querySelectorAll("input, textarea");
+            
+                inputs.forEach(function (input) {
+                    input.addEventListener("focus", function () {
+                        this.setAttribute("data-placeholder", this.placeholder);
+                        this.placeholder = "";
+                    });
+            
+                    input.addEventListener("blur", function () {
+                        if (this.value === "") {
+                            this.placeholder = this.getAttribute("data-placeholder");
+                        }
+                    });
+                });
+            });
+            </script>
           
         
         <!-- Tiếp tục thêm đến 19 -->
