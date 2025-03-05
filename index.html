@@ -295,55 +295,78 @@ body {
         <div class="group-input">
           <div class="group-select">
             <label>em có muốn hỏi lại anh gì không ?</label>
-            <select name="entry.1818752923" id="wedding-select" class="uk-text-truncate">
-              <option value="có" selected="selected">có</option>
-              <option value="Không">Không</option>
+            <select name="entry.1818752923" id="question-toggle" class="uk-text-truncate">
+                <option value="Có">Có</option>
+                <option value="Không" selected>Không</option>
             </select>
-            <i class="bx bx-chevron-down"></i>
-          </div>
-          <div class="group-select">
-            <label>hmmm thế thì anh để mấy câu bên dưới để em hỏi nhé</label>
-            <select name="entry.69665313" id="wedding-select" class="uk-text-truncate">
-              <option value="oki nè" selected="selected">oki nè</option>
-            </select>
-            <i class="bx bx-chevron-down"></i>
-          </div>
-        <div class="group-input">
-          <label>câu 1 ( em hỏi bên dưới nhé)</label>
-          <input type="text" class="input" name="entry.625855130" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 2</label>
-          <input type="text" class="input" name="entry.1981526654" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 3</label>
-          <input type="text" class="input" name="entry.1244617633" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 4</label>
-          <input type="text" class="input" name="entry.1753581199" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 5</label>
-          <input type="text" class="input" name="entry.768371141" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 6</label>
-          <input type="text" class="input" name="entry.1021543099" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 7</label>
-          <input type="text" class="input" name="entry.344820579" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>câu 8</label>
-          <input type="text" class="input" name="entry.1136445565" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
-        <div class="group-input">
-          <label>muốn hỏi thêm gì nữa không nè ?</label>
-          <input type="text" class="input" name="entry.942161081" equired 
-          placeholder="Nhập câu trả lời" autocomplete="off">
+        </div>
+        
+        <div id="question-container" style="display: none;">
+            <div class="group-input">
+                <label>Câu 1</label>
+                <input type="text" class="input" name="entry.625855130" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 2</label>
+                <input type="text" class="input" name="entry.1981526654" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 3</label>
+                <input type="text" class="input" name="entry.1244617633" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 4</label>
+                <input type="text" class="input" name="entry.1753581199" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 5</label>
+                <input type="text" class="input" name="entry.768371141" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 6</label>
+                <input type="text" class="input" name="entry.1021543099" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 7</label>
+                <input type="text" class="input" name="entry.344820579" placeholder="Nhập câu hỏi">
+            </div>
+            <div class="group-input">
+                <label>Câu 8</label>
+                <input type="text" class="input" name="entry.1136445565" placeholder="Nhập câu hỏi">
+            </div>
+        </div>
+        
+        <script>
+        document.getElementById("question-toggle").addEventListener("change", function() {
+            var container = document.getElementById("question-container");
+            if (this.value === "Có") {
+                container.style.display = "block";
+            } else {
+                container.style.display = "none";
+            }
+        });
+        </script>
+        
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              var toggle = document.getElementById("question-toggle");
+              var container = document.getElementById("question-container");
+              var input = document.querySelector(".question-input");
+          
+              toggle.addEventListener("change", function() {
+                  if (toggle.value === "Có") {
+                      container.style.display = "block";
+                  } else {
+                      container.style.display = "none";
+                      if (input) {
+                          input.value = ""; // Xóa nội dung khi chọn "Không"
+                      }
+                  }
+              });
+          });
+          </script>
+          
         
         <!-- Tiếp tục thêm đến 19 -->
         
@@ -423,6 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 
 </script>
