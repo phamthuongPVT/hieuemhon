@@ -47,19 +47,21 @@ input, select, textarea {
   padding: 12px;
 }
 
-body {
+  body {
   font-family: 'Poppins', sans-serif;
-  background: url('https://github.com/phamthuongPVT/hieuemhon/tree/main/images/rr.jpg') no-repeat center center fixed;
-  background: url('/images/rr.jpeg');
-  background-size: cover;
+  background: url('https://raw.githubusercontent.com/phamthuongPVT/hieuemhon/main/images/rr.jpg') no-repeat center center fixed;
+  background-size: contain; /* Hoặc thử cover nếu muốn ảnh phủ toàn bộ */
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Tránh căn giữa nội dung quá mức */
+  justify-content: flex-start; /* Giữ nội dung bắt đầu từ trên */
   align-items: center;
- 
 }
+
+ 
 
 
 .form-container {
