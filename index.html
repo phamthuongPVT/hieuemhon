@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <head>
   <meta charset="UTF-8">
@@ -49,10 +50,17 @@ input, select, textarea {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f8f9fa;
+  background: url('/rr.jpg') no-repeat center center fixed;
+  background-size: cover;
   margin: 0;
   padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Đảm bảo chiếm toàn bộ chiều cao màn hình */
 }
+
 
 .form-container {
   max-width: 600px;
@@ -152,18 +160,7 @@ textarea {
    html {
   scroll-behavior: smooth;
 }
-body {
-  margin: 0;
-  padding: 0;
-  background: url('/rr.jpg') repeat 0 0;
 
-  
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 #form-wedding-section {
   background-size: cover;
   background-position: center;
